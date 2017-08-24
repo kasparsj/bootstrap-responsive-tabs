@@ -27,6 +27,12 @@
           $navTabs = $self.find('> li > a'),
           $tabContent = $($navTabs.first().attr('href')).parent('.tab-content'),
           $tabs = $tabContent.children('.tab-pane');
+      
+      if (!$.contains($self[0].parentNode, $tabContent[0])) {
+          while ($tabContent[0].parentNode !== $self[0].parentNode) {
+              $tabContent = $tabContent.parent();
+          }
+      }
 
       // Wrap the tabs
       $self.add($tabContent).wrapAll('<div class="responsive-tabs-container" />');
