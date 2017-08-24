@@ -28,7 +28,7 @@
           $tabContent = $($navTabs.first().attr('href')).parent('.tab-content'),
           $tabs = $tabContent.children('.tab-pane');
       
-      if (!$.contains($self[0].parentNode, $tabContent[0])) {
+      if ($.contains($self[0].parentNode, $tabContent[0])) {
           while ($tabContent[0].parentNode !== $self[0].parentNode) {
               $tabContent = $tabContent.parent();
           }
